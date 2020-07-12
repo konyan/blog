@@ -23,6 +23,8 @@ export default class MyDocument extends Document {
           `
           body{
             font-family: 'Roboto Mono', monospace;
+            margin:0px;
+            padding:0px;
           }
           `
         }</style>

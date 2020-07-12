@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Router, { useRouter } from 'next/router';
 import NProgress from 'nprogress';
+import Footer from './Footer';
 
 Router.onRouteChangeStart = url => NProgress.start();
-
 
 Router.onRouteChangeComplete = () => NProgress.done();
 
@@ -42,6 +42,7 @@ const Layout = ({ children, title }) => {
       <React.Fragment>
         {children}
       </React.Fragment>
+      <Footer />
     </div>
   )
 }

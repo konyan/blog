@@ -40,23 +40,45 @@
 
   .read_list_container{
      text-align: center;
-     width: 70%;
+     width: 80%;
      margin: 0 auto;
      .read_container{
        display: flex;
        justify-content: space-between;
-       border-bottom:1px solid #333 ;
-       padding: 1.5rem 0;
-       .read_date{
-         text-transform: uppercase;
-         color: #f26522;
-       }
-       .read_des{
-         width: 70%;
-       }
-       .read_time{
-         color: #333;
-       }
+       border-bottom:1px solid rgba(0,0,0,0.1) ;
+       padding: 0;
+       margin: 0;
+        &:hover{
+          cursor: pointer;
+          border-bottom:2px solid rgba(0,0,0,0.1) ;
+          small{
+            transform: translateX(-24px);
+            font-weight: 500;
+
+            &::after{
+              content: "   >";
+            }
+          }
+        }
+
+       h4{
+          color: red;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        p{
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+        }
+
+        small{
+          font-size: 12px;
+          font-weight: 300;
+          margin : 1rem 0;
+          transition: all .6s;
+        }
      }
      .loadmore{
        margin-top: 50px;

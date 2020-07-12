@@ -28,59 +28,24 @@ export default function Home() {
 
       <div className={styles.read_list_container}>
         <div className={styles.read_container}>
-          <div className={styles.read_date}>
-            <h4>Feb 15</h4>
-          </div>
-          <div className={styles.read_des}>
-            <p>AI product management: Research, requirements and scope</p>
-          </div>
-          <div className={styles.read_time}>
-            <p>1 min read</p>
-          </div>
+          <h4>Feb 15</h4>
+          <p>AI product management: Research, requirements and scope</p>
+          <small>1 min read</small>
         </div>
         <div className={styles.read_container}>
-          <div className={styles.read_date}>
-            <h4>Feb 15</h4>
-          </div>
-          <div className={styles.read_des}>
-            <p>AI product management: Research, requirements and scope</p>
-          </div>
-          <div className={styles.read_time}>
-            <p>1 min read</p>
-          </div>
+          <h4>Feb 15</h4>
+          <p>AI product management: Research, requirements and scope</p>
+          <small>1 min read</small>
         </div>
         <div className={styles.read_container}>
-          <div className={styles.read_date}>
-            <h4>Feb 15</h4>
-          </div>
-          <div className={styles.read_des}>
-            <p>AI product management: Research, requirements and scope</p>
-          </div>
-          <div className={styles.read_time}>
-            <p>1 min read</p>
-          </div>
+          <h4>Feb 15</h4>
+          <p>AI product management: Research, requirements and scope</p>
+          <small>1 min read</small>
         </div>
         <div className={styles.read_container}>
-          <div className={styles.read_date}>
-            <h4>Feb 15</h4>
-          </div>
-          <div className={styles.read_des}>
-            <p>AI product management: Research, requirements and scope</p>
-          </div>
-          <div className={styles.read_time}>
-            <p>1 min read</p>
-          </div>
-        </div>
-        <div className={styles.read_container}>
-          <div className={styles.read_date}>
-            <h4>Feb 15</h4>
-          </div>
-          <div className={styles.read_des}>
-            <p>AI product management: Research, requirements and scope</p>
-          </div>
-          <div className={styles.read_time}>
-            <p>1 min read</p>
-          </div>
+          <h4>Feb 15</h4>
+          <p>AI product management: Research, requirements and scope</p>
+          <small>1 min read</small>
         </div>
         <div className={styles.loadmore}>
           <a>load More</a>

@@ -1,7 +1,12 @@
+
 .App_container{
   margin: 0 auto;
   max-width: 1100px;
 
+  a{
+  text-decoration: none;
+  color: #333;
+  }
   .logo{
     color: grey;
   }
@@ -14,17 +19,19 @@
         list-style: none;
         display: flex;
         justify-content: space-between;
-         li{
+
+         a{
             margin: 4px 8px;
             padding: 4px 8px;
             cursor: pointer;
+            font-size: 16px;
          }
 
-         li.active{
+         a.active{
             border-bottom: 2px solid #333;
          }
 
-         li:hover {
+         a:hover {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
             background-position: bottom;
             background-repeat: repeat-x;
@@ -34,7 +41,7 @@
             text-decoration: none;
         }
 
-         li:last-child{
+         a:last-child{
            padding: 4px 0px;
          }
       }

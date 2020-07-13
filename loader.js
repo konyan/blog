@@ -2,14 +2,14 @@ import matter from 'gray-matter';
 import glob from 'glob';
 import config from './globals';
 
-export const loadMarkdownFile = async (filePath) => {
-  const mdFile = await import(`./md/${filePath}`);
-  return { path: filePath, contents: mdFile.default }
+export const loadMarkdownFile = async (path) => {
+  const mdFile = await import(`./md/${path}`);
+  return { path, contents: mdFile.default };
 }
 
 
 export const mdToPost = (file) => {
-  const metaData = matter(file.contents);
+  const metadata = matter(file.contents);
   const path = file.path.replace('.md', '');
   const post = {
     path,
@@ -34,21 +34,26 @@ export const mdToPost = (file) => {
   return post;
 }
 
-export const loadMarkdownFiles = async path => {
+export const loadMarkdownFiles = async (path) => {
   const blogPaths = glob.sync(`./md/${path}`);
-  return await Promise.all(
+  const postDataList = await Promise.all(
     blogPaths.map((blogPath) => {
       const modPath = blogPath.slice(blogPath.indexOf(`md/`) + 3);
       return loadMarkdownFile(`${modPath}`);
     })
-  )
+  );
+  return postDataList;
 }
 
-export const loadPost = async path => {
+export const loadPost = async (path) => {
   const file = await loadMarkdownFile(path);
   return mdToPost(file);
 }
 
 export const loadBlogPosts = async () => {
   return await (await loadMarkdownFiles(`blog/*.md`)).map(mdToPost);
+}
+
+export const loadLastestPosts = async () => {
+  return await (await (await loadMarkdownFiles(`blog/*.md`)).filter((file, index) => index >= 1)).map(mdToPost);
 }

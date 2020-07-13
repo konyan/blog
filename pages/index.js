@@ -3,10 +3,11 @@ import styles from './index.module.scss'
 import Layout from '../components/Layout';
 import Profile from '../components/Profile';
 import FeatureArticle from '../components/FeatureArticle';
-import { loadBlogPosts, loadMarkdownFile } from '../loader';
+import { loadBlogPosts, loadLastestPosts } from '../loader';
+import { format } from 'fecha';
 
-const Home = ({ posts }) => {
 
+const Home = ({ posts, lastestPosts }) => {
   return (
     <Layout>
       <Profile />
@@ -15,44 +16,24 @@ const Home = ({ posts }) => {
           <div className={styles.feature_title}>
             <h3>LATESTED ARTICLES</h3>
           </div>
-          <div className={styles.feature_button}>
-            <a>&lt;</a>
-            <a>&gt;</a>
-          </div>
         </div>
         <div className={styles.image_list_container}>
-          <FeatureArticle />
-          <FeatureArticle />
-          <FeatureArticle />
+          {lastestPosts.map((post, index) =>
+            <FeatureArticle post={post} key={index} />
+          )}
         </div>
       </div>
 
       <div className={styles.read_list_container}>
-        {posts.map(post => {
-          <div className={styles.read_container}>
+        {posts.map((post, index) => (
+          <div className={styles.read_container} key={index}>
             <h4>{post.datePublished
               ? format(new Date(post.datePublished), 'MMMM Do, YYYY')
               : ''}</h4>
             <p>{post.title}</p>
             <small>1 min read</small>
           </div>
-        })}
-
-        <div className={styles.read_container}>
-          <h4>Feb 15</h4>
-          <p>AI product management: Research, requirements and scope</p>
-          <small>1 min read</small>
-        </div>
-        <div className={styles.read_container}>
-          <h4>Feb 15</h4>
-          <p>AI product management: Research, requirements and scope</p>
-          <small>1 min read</small>
-        </div>
-        <div className={styles.read_container}>
-          <h4>Feb 15</h4>
-          <p>AI product management: Research, requirements and scope</p>
-          <small>1 min read</small>
-        </div>
+        ))}
         <div className={styles.loadmore}>
           <a>load More</a>
         </div>
@@ -62,11 +43,13 @@ const Home = ({ posts }) => {
   )
 }
 
-Home.getStaticProps = async () => {
-  const posts = await loadBlogPosts();
-
-
-  return { posts }
-}
 
 export default Home;
+
+
+export const getStaticProps = async () => {
+  const posts = await loadBlogPosts();
+  const lastestPosts = await loadLastestPosts();
+  const props = { posts, lastestPosts };
+  return { props };
+};

@@ -1,7 +1,7 @@
-const FeatureArticle = () => (
+const FeatureArticle = ({ post }) => (
   <div className="feature_article">
-    <img src="https://demo.iveel.co/dawn/content/images/size/w1140/2020/07/photo-1558655146-6c222b05fce4.jpeg" />
-    <h2>Retailers going digital payment only don't save money</h2>
+    <img src={post.bannerPhoto} />
+    <h2>{post.title}</h2>
     <style jsx>{
       `.feature_article{
         flex: 1;

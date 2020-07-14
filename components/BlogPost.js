@@ -1,10 +1,9 @@
-import Layout from "./Layout";
 import PostMeta from './PostMeta';
 import Link from 'next/link';
 import Markdown from './Markdown';
 
 const BlogPost = ({ post }) => (
-  <Layout>
+  <React.Fragment>
     <PostMeta post={post} />
     <article>
       <header className="header">
@@ -86,7 +85,7 @@ const BlogPost = ({ post }) => (
         }
       `
     }</style>
-  </Layout>
+  </React.Fragment>
 )
 
 export default BlogPost;

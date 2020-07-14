@@ -22,7 +22,11 @@ const Layout = ({ children, title }) => {
       <header>
         <div className={styles.header_container}>
           <div className={styles.logo}>
-            <h3>Ko Nyan {router.params}</h3>
+            <Link href="/">
+              <a>
+                <h3>Ko Nyan {router.params}</h3>
+              </a>
+            </Link>
           </div>
           <div className={styles.header_list_container}>
             <div className={styles.header_list}>
@@ -32,9 +36,8 @@ const Layout = ({ children, title }) => {
               <Link href="/tag">
                 <a className={router.pathname === "/tag" ? styles.active : ""}>Tag</a>
               </Link>
-              <Link href="/portfolio">
-                <a target="_blank">Portfolio</a>
-              </Link>
+
+              <a target="_blank" rel="noopener noreferrer" href="https://konyan.me/">Portfolio</a>
             </div>
           </div>
         </div>
@@ -43,6 +46,16 @@ const Layout = ({ children, title }) => {
         {children}
       </React.Fragment>
       <Footer />
+
+      <style global jsx>{
+        `
+         body{
+            font-family: 'Roboto Mono', monospace;
+            margin:0px;
+            padding:0px;
+          }
+        `
+      }</style>
     </div>
   )
 }

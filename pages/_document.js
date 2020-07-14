@@ -23,7 +23,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <style jsx>{
+        <style global jsx>{
           `
           body{
             font-family: 'Roboto Mono', monospace;

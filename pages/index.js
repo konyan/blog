@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Link from 'next/link';
 import styles from './index.module.scss'
 import Layout from '../components/Layout';
 import Profile from '../components/Profile';
@@ -26,13 +26,18 @@ const Home = ({ posts, lastestPosts }) => {
 
       <div className={styles.read_list_container}>
         {posts.map((post, index) => (
-          <div className={styles.read_container} key={index}>
-            <h4>{post.datePublished
-              ? format(new Date(post.datePublished), 'MMMM Do, YYYY')
-              : ''}</h4>
-            <p>{post.title}</p>
-            <small>1 min read</small>
-          </div>
+          <Link href={`/${post.path}`}>
+            <a>
+              <div className={styles.read_container} key={index}>
+                <h4>{post.datePublished
+                  ? format(new Date(post.datePublished), 'MMMM Do, YYYY')
+                  : ''}</h4>
+                <p>{post.title}</p>
+                <small>1 min read</small>
+              </div>
+            </a>
+          </Link>
+
         ))}
         <div className={styles.loadmore}>
           <a>load More</a>

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "now --public"
+    "export": "next export",
+    "deploy": "cd out & now --public"
   },
   "dependencies": {
     "fecha": "^4.2.0",
